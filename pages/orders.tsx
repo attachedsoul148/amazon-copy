@@ -26,10 +26,14 @@ const Orders = ({ orders }: Props) => {
 
       <main className="max-w-5xl mx-auto p-5 sm:p-10">
         <div>
-          <h1 className="text-3xl">Your orders | {orders.length} Orders</h1>
+          {orders ? (
+            <h1 className="text-3xl">Your orders | {orders.length} Orders</h1>
+          ) : (
+            <h1 className="text-3xl">Log in to see your orders</h1>
+          )}
           <div className="my-4 border-b w-full mx-auto border-yellow-500" />
           <div className="flex flex-col mt-2 space-y-5">
-            {orders.map((order) => (
+            {orders?.map((order) => (
               <Order key={order.id} order={order} />
             ))}
           </div>
